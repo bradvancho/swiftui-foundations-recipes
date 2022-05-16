@@ -9,8 +9,9 @@ import SwiftUI
 
 /// Add detail for a recipe based on what user taps on in the list view
 struct RecipeDetailView: View {
-    var recipe:Recipe
     
+    var recipe:Recipe
+    @State var selectedServing = 2
     var body: some View {
         ScrollView {
             
@@ -20,13 +21,27 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 
+                // MARK: Serving Size Picker
+                VStack (alignment: .leading){
+                    Text("Select Your Serving Size")
+                    Picker("Not Used",selection:$selectedServing) {
+                        Text("2").tag(2)
+                        Text("4").tag(4)
+                        Text("6").tag(6)
+                        Text("8").tag(8)
+                    }
+                    .pickerStyle(.segmented)
+                    .frame(width:160)
+                }
+                .padding()
+
                 // MARK: Ingredients
                 VStack(alignment: .leading) {
                     Text("Ingredients:")
                         .font(.headline)
                         .padding([.bottom,.leading], 5)
                     ForEach (recipe.ingredients){ item in //dont need ID because this is an identifiable object
-                        Text("-" + item.name)
+                        Text("-" + RecipeModel.getPortion(ingredient: item, recipeServings: recipe.servings, targetServings: selectedServing) + " " + item.name.lowercased())
                     }
                 }.padding(.horizontal)
                 
@@ -53,6 +68,6 @@ struct RecipeDetailView_Previews: PreviewProvider {
         
         //Create a dummy recipe and pass it to detail view so we can see a preview
         let model = RecipeModel()
-        RecipeDetailView(recipe: model.recipes[0])
+        RecipeDetailView(recipe: model.recipes[1])
     }
 }
