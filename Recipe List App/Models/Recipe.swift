@@ -17,7 +17,17 @@ class Recipe: Identifiable, Decodable {
     var cookTime:String
     var totalTime:String
     var servings:Int
-    var ingredients:[String]
+    var ingredients:[Ingredients]
     var directions:[String]
+    var highlights:[String]
+    
+}
+
+class Ingredients: Identifiable, Decodable { //Identifiable lets it work in a list, decodable lets us decode that json data
+    var id: UUID?
+    var name:String
+    var num:Int?
+    var denom:Int?
+    var unit:String?
     
 }

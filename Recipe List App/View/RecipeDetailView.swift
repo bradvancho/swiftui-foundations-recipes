@@ -20,13 +20,13 @@ struct RecipeDetailView: View {
                     .resizable()
                     .scaledToFill()
                 
-                // MARK: Incredients
+                // MARK: Ingredients
                 VStack(alignment: .leading) {
                     Text("Ingredients:")
                         .font(.headline)
                         .padding([.bottom,.leading], 5)
-                    ForEach (recipe.ingredients, id:\.self){ item in
-                        Text("-" + item)
+                    ForEach (recipe.ingredients){ item in //dont need ID because this is an identifiable object
+                        Text("-" + item.name)
                     }
                 }.padding(.horizontal)
                 
