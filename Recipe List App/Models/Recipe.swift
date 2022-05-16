@@ -13,7 +13,7 @@ class Recipe: Identifiable, Decodable {
     var featured:Bool
     var image:String
     var description:String
-//    var prepTime:String if we dont want one we dont need it
+    var prepTime:String
     var cookTime:String
     var totalTime:String
     var servings:Int

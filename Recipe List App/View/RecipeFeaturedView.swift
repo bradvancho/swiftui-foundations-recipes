@@ -10,6 +10,8 @@ import SwiftUI
 struct RecipeFeaturedView: View {
     @EnvironmentObject var model:RecipeModel //Preview doesnt get populated
     @State var isDetailViewShowing = false
+    @State var tabSelectionIndex = 0
+    
     var body: some View {
         
         VStack(alignment: .leading,spacing: 0) {
@@ -21,13 +23,13 @@ struct RecipeFeaturedView: View {
                 .font(.largeTitle)
             
             GeometryReader { geo in
-                TabView { //can also be used as a swipeable cad
+                TabView (selection: $tabSelectionIndex){ //can also be used as a swipeable card
                     ForEach (0..<model.recipes.count){ index in
                         if model.recipes[index].featured == true {
 
                             //Recipe card button
                             Button{
-                                self.isDetailViewShowing = true //When button is tapped, we'll flip this to true, and then in the sheet modifier we'll turn isPresented on so that it shows the content 
+                                self.isDetailViewShowing = true //When button is tapped, we'll flip this to true, and then in the sheet modifier we'll turn isPresented on so that it shows the content
                             } label: {
                                 ZStack {
                                     Rectangle()
@@ -43,6 +45,7 @@ struct RecipeFeaturedView: View {
                                     }
                                 }
                             }
+                            .tag(index)
                             .sheet(isPresented: $isDetailViewShowing, content: {
                                 // Show the recipe detail view
                                 RecipeDetailView(recipe: model.recipes[index])
@@ -61,13 +64,24 @@ struct RecipeFeaturedView: View {
             VStack (alignment: .leading, spacing: 10) {
                 Text("Preparation Time:")
                     .font(.headline)
-                Text("1 Hour")
+                Text(model.recipes[tabSelectionIndex].prepTime)
                 Text("Highlights")
                     .font(.headline)
-                Text("Healthy, hearty...")
+                RecipeHighlights(highlights: model.recipes[tabSelectionIndex].highlights)
             }
             .padding([.leading,.bottom])
         }
+        .onAppear {
+            setFeaturedIndex() // make sure the prep time for the first featured recipe is right
+        }
+    }
+    
+    func setFeaturedIndex() {
+        //Find the first recipe that is featured
+        var index = model.recipes.firstIndex { recipe -> Bool in
+            return recipe.featured
+        }
+        tabSelectionIndex = index ?? 0
     }
 }
 

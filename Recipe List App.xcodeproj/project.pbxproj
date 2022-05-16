@@ -19,6 +19,7 @@
 		66FD3E432831CE3100F72B3D /* recipes.json in Resources */ = {isa = PBXBuildFile; fileRef = 66FD3E422831CE3100F72B3D /* recipes.json */; };
 		66FD3E452831D1C500F72B3D /* RecipeFeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FD3E442831D1C500F72B3D /* RecipeFeaturedView.swift */; };
 		66FD3E4C2831F7CA00F72B3D /* Rational.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FD3E4B2831F7CA00F72B3D /* Rational.swift */; };
+		66FD3E4E283202C500F72B3D /* RecipeHighlights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66FD3E4D283202C500F72B3D /* RecipeHighlights.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		66FD3E422831CE3100F72B3D /* recipes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = recipes.json; path = "../../../../Code With Chris/iOS Foundations 2021/Module 4/Lesson 05/recipes.json"; sourceTree = "<group>"; };
 		66FD3E442831D1C500F72B3D /* RecipeFeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeFeaturedView.swift; sourceTree = "<group>"; };
 		66FD3E4B2831F7CA00F72B3D /* Rational.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rational.swift; sourceTree = "<group>"; };
+		66FD3E4D283202C500F72B3D /* RecipeHighlights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeHighlights.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				66FA284E28308F27007BD47A /* RecipeListView.swift */,
 				66FA287B28309CD0007BD47A /* RecipeDetailView.swift */,
 				66FD3E442831D1C500F72B3D /* RecipeFeaturedView.swift */,
+				66FD3E4D283202C500F72B3D /* RecipeHighlights.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 			files = (
 				66FA28762830907D007BD47A /* Recipe.swift in Sources */,
 				66FA287C28309CD0007BD47A /* RecipeDetailView.swift in Sources */,
+				66FD3E4E283202C500F72B3D /* RecipeHighlights.swift in Sources */,
 				66FD3E4C2831F7CA00F72B3D /* Rational.swift in Sources */,
 				66FA28782830918C007BD47A /* RecipeModel.swift in Sources */,
 				66FA284F28308F27007BD47A /* RecipeListView.swift in Sources */,
